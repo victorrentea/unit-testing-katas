@@ -1,6 +1,6 @@
 package victor.testing.kata.demo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatcher;
 import org.mockito.MockedStatic;
@@ -262,7 +262,7 @@ public class MockitoShowcaseTest {
 
 	@Test
 	public void mockStaticTime() {
-		LocalDateTime fixed = LocalDateTime.parse("2021-09-29T23:07:01");
+		LocalDateTime fixed = LocalDateTime.parse("2019-09-29T23:07:01");
 		LocalDateTime nowFromTestedCode;
 		try (MockedStatic<LocalDateTime> mock = mockStatic(LocalDateTime.class)) {
 			mock.when(LocalDateTime::now).thenReturn(fixed);
