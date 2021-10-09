@@ -263,16 +263,16 @@ public class MockitoShowcaseTest {
 	@Test
 	public void mockStaticTime() {
 		LocalDateTime fixed = LocalDateTime.parse("2021-09-29T23:07:01");
+		LocalDateTime nowFromTestedCode;
 		try (MockedStatic<LocalDateTime> mock = mockStatic(LocalDateTime.class)) {
 			mock.when(LocalDateTime::now).thenReturn(fixed);
 
 			// tested code
-			LocalDateTime nowFromTestedCode = LocalDateTime.now();
-
-			// back in tests
-			System.out.println(nowFromTestedCode);
-			assertThat(nowFromTestedCode.getYear()).isLessThan(2021);
+			nowFromTestedCode = LocalDateTime.now();
 		}
+		// back in tests
+		System.out.println(nowFromTestedCode);
+		assertThat(nowFromTestedCode.getYear()).isLessThan(2021);
 		// Note: you CANNOT use this technique to mock System.currentTimeMillis() used internally by `new Date()`
 	}
 
