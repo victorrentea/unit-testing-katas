@@ -9,3 +9,6 @@ The exercises:
 3. Nuclear Service - heavy mocks
 
 To learn Mockito features by example, please check the MockitoShowcaseTest class.
+
+For extra difficulty, try to run mvn test and then look in /target/pit-reports/index.html
+for a report on how well you tested the target code.
